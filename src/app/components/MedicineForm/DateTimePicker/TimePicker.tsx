@@ -8,9 +8,9 @@ import {
   StaticTimePicker,
   StaticTimePickerProps,
 } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { format } from 'date-fns';
-import { ja } from 'date-fns/locale/ja';
+import ja from 'date-fns/locale/ja';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import TextField from '../../DateTimePicker/TextField';

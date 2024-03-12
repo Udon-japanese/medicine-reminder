@@ -6,6 +6,7 @@ import { Prisma } from '@prisma/client';
 import { isDate } from 'date-fns';
 import { NextResponse } from 'next/server';
 import { isInValidIntakeTime } from './utils';
+import { getDateInTimezone } from '@/utils/getDateInTimeZone';
 
 export async function GET() {
   const currentUser = await getCurrentUser();
@@ -71,7 +72,7 @@ export async function POST(req: Request) {
         return new NextResponse('Invalid scheduledIntakeTime', { status: 400 });
       }
 
-      const scheduledIntakeDateObj = new Date(scheduledIntakeDate);
+      const scheduledIntakeDateObj = getDateInTimezone(new Date(scheduledIntakeDate));
       if (!isDate(scheduledIntakeDateObj) || isInvalidDate(scheduledIntakeDateObj)) {
         return new NextResponse('Invalid scheduledIntakeDate', { status: 400 });
       }

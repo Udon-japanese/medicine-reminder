@@ -1,6 +1,7 @@
 import { Prisma } from '@prisma/client';
 import { GetMedicineData } from '../types';
 import { MedicineWithRelations } from '@/types';
+import { getDateInTimezone } from '@/utils/getDateInTimeZone';
 
 export async function getUpdateMedicineData({
   convertedMedicine,
@@ -56,7 +57,7 @@ export async function getUpdateMedicineData({
     },
     unit,
     userId,
-    updatedAt: new Date(),
+    updatedAt: getDateInTimezone(new Date()),
   };
 
   if (intakeTimes.length > 0) {

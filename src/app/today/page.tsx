@@ -1,9 +1,10 @@
 import Sidebar from '../components/sidebar/Sidebar';
 import MedicineRecordForm from '../components/medicineRecord/MedicineRecordForm';
 import getExistingMedicinesWithRecords from '@/utils/getExistingMedicinesWithRecords';
+import { getDateInTimezone } from '@/utils/getDateInTimeZone';
 
 export default async function Page() {
-  const today = new Date();
+  const today = getDateInTimezone(new Date());
   const { medicines, medicineRecords } = await getExistingMedicinesWithRecords();
 
   return (

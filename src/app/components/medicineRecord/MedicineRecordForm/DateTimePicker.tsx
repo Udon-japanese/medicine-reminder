@@ -9,8 +9,8 @@ import {
 import { Dispatch, SetStateAction } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import useMediaQuery from '@/app/hooks/useMediaQuery';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
-import { ja } from 'date-fns/locale/ja';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import ja from 'date-fns/locale/ja';
 import { format, getYear, isToday } from 'date-fns';
 import TextField from '@/app/components/DateTimePicker/TextField';
 import { isInvalidDate } from '@/utils/isInvalidDate';

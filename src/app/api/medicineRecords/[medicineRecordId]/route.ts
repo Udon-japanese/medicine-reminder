@@ -4,6 +4,7 @@ import { isInvalidDate } from "@/utils/isInvalidDate";
 import { isDate } from "date-fns";
 import { NextResponse } from "next/server";
 import { isInValidIntakeTime } from "../utils";
+import { getDateInTimezone } from "@/utils/getDateInTimeZone";
 
 type Params = { params: { medicineRecordId: string } };
 
@@ -84,7 +85,7 @@ export async function PUT(req: Request, { params }: Params) {
       return new NextResponse('Invalid actualIntakeTime', { status: 400 });
     }
 
-    const actualIntakeDateObj = new Date(actualIntakeDate);
+    const actualIntakeDateObj = getDateInTimezone(new Date(actualIntakeDate));
     if (!isDate(actualIntakeDateObj) || isInvalidDate(actualIntakeDateObj)) {
       return new NextResponse('Invalid actualIntakeDate', { status: 400 });
     }
