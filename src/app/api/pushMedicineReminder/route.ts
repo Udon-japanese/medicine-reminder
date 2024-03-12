@@ -99,7 +99,7 @@ export async function GET() {
       }
     }
 
-    return new NextResponse('OK', { status: 200 });
+    return new NextResponse('throw Error', { status: 500 });
   } catch (err) {
     console.error(err);
     return new NextResponse('Internal Server Error', { status: 500 });
