@@ -4,13 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "run-p dev:next dev:scss",
-    "dev:next": "NODE_ENV=development nodemon",
+    "dev:next": "next dev",
     "dev:scss": "typed-scss-modules \"src/**/*.scss\" -w",
     "typegen:scss": "typed-scss-modules \"src/**/*.scss\"",
-    "build": "run-p build:next build:server",
-    "build:next": "prisma generate && prisma db push && next build",
-    "build:server": "tsc --project tsconfig.server.json",
-    "start": "NODE_ENV=production node dist/index.js",
+    "build": "prisma generate && prisma db push && next build",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {

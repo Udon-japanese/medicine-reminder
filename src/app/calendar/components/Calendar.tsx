@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import ReactCalendar from 'react-calendar';
-import { View } from 'react-calendar/dist/cjs/shared/types';
 import { MedicineWithRelations } from '@/types';
 import MedicineRecordForm from '@/app/components/medicineRecord/MedicineRecordForm';
 import { MedicineRecord } from '@prisma/client';
@@ -14,12 +13,16 @@ const tileContent = ({
   medicines,
 }: {
   date: Date;
-  view: View;
+  view: 'century' | 'decade' | 'year' | 'month';
   medicines: MedicineWithRelations[];
 }) => {
   if (view === 'month') {
     const currentDayMedicines = medicines.filter((m) =>
-      isCurrentMedicine({ period: m?.period, frequency: m?.frequency, currentDate: date }),
+      isCurrentMedicine({
+        period: m?.period,
+        frequency: m?.frequency,
+        currentDate: date,
+      }),
     );
     return <div>{currentDayMedicines.map((m) => m?.name).join('\n')}</div>;
   }
