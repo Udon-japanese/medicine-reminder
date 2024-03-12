@@ -6,9 +6,9 @@ export const formatPeriod = ({
   hasDeadline,
   days,
 }: {
-  startDate: unknown | undefined;
-  hasDeadline: unknown | undefined;
-  days?: unknown | undefined;
+  startDate: Date | undefined;
+  hasDeadline: boolean | null | undefined;
+  days?: number | string | null | undefined;
 }) => {
   const isDaysValid =
     ((typeof days === 'string' && days.trim() !== '') || typeof days === 'number') &&
