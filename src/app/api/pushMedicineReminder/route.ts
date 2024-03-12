@@ -3,12 +3,12 @@ import { format, getHours, getMinutes } from 'date-fns';
 import { getImageUrlByIdServer } from '../lib/cloudinary';
 import { webPush } from '@/lib/webPush';
 import { NextResponse } from 'next/server';
-import { utcToZonedTime } from 'date-fns-tz';
-import { TIME_ZONE } from '@/app/constant/timezone';
+import { getDateInTimezone } from '@/utils/getDateInTimezone';
 
 export async function GET() {
   try {
-    const currentDate = utcToZonedTime(new Date(), TIME_ZONE);
+    const currentDate = getDateInTimezone(new Date());
+    console.log('currentDate', currentDate)
     const currentHours = getHours(currentDate);
     const currentMinutes = getMinutes(currentDate);
     const currentTimeInMinutes = currentHours * 60 + currentMinutes;
