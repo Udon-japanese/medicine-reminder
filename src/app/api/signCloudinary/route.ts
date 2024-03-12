@@ -1,7 +1,7 @@
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import cloudinary from '../lib/cloudinary';
 import { NextResponse } from 'next/server';
-import { getDateInTimezone } from '@/utils/getDateInTimeZone';
+import { getDateInTimezone } from '@/utils/getDateInTimezone';
 
 const cloudName = cloudinary.config().cloud_name!;
 const apiSecret = cloudinary.config().api_secret!;

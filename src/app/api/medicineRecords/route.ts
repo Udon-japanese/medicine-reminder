@@ -6,7 +6,7 @@ import { Prisma } from '@prisma/client';
 import { isDate } from 'date-fns';
 import { NextResponse } from 'next/server';
 import { isInValidIntakeTime } from './utils';
-import { getDateInTimezone } from '@/utils/getDateInTimeZone';
+import { getDateInTimezone } from '@/utils/getDateInTimezone';
 
 export async function GET() {
   const currentUser = await getCurrentUser();

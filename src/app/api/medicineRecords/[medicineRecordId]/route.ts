@@ -4,7 +4,7 @@ import { isInvalidDate } from "@/utils/isInvalidDate";
 import { isDate } from "date-fns";
 import { NextResponse } from "next/server";
 import { isInValidIntakeTime } from "../utils";
-import { getDateInTimezone } from "@/utils/getDateInTimeZone";
+import { getDateInTimezone } from "@/utils/getDateInTimezone";
 
 type Params = { params: { medicineRecordId: string } };
 

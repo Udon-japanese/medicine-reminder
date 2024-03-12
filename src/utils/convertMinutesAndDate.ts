@@ -1,6 +1,6 @@
 import { getHours, getMinutes, isDate } from 'date-fns';
 import { isInvalidDate } from './isInvalidDate';
-import { getDateInTimezone } from './getDateInTimeZone';
+import { getDateInTimezone } from '@/utils/getDateInTimezone';
 
 type Return<T> = T extends number ? Date : T extends Date ? number : never;
 
