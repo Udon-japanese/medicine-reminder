@@ -6,14 +6,7 @@ import { NextResponse } from 'next/server';
 import { getDateInTimezone } from '@/utils/getDateInTimezone';
 
 export const dynamic = 'force-dynamic'
-export async function GET(req: Request) {
-  const authHeader = req.headers.get('authorization');
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    return new Response('Unauthorized', {
-      status: 401,
-    });
-  }
-
+export async function GET() {
   try {
     // const currentDate = getDateInTimezone(new Date());
     // console.log('currentDate', currentDate)
