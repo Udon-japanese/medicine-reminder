@@ -5,7 +5,9 @@ import { webPush } from '@/lib/webPush';
 import { NextResponse } from 'next/server';
 import { getDateInTimezone } from '@/utils/getDateInTimezone';
 
-export const dynamic = 'force-dynamic'
+export const maxDuration = 10;
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 export async function GET() {
   try {
     // const currentDate = getDateInTimezone(new Date());
@@ -100,24 +102,23 @@ export async function GET() {
     //   }
     // }
 
-      const pushSubscriptions = await prisma.pushSubscription.findMany();
+    const pushSubscriptions = await prisma.pushSubscription.findMany();
 
-      for (const subscription of pushSubscriptions) {
-        const pushSubscription = {
-          endpoint: subscription.endpoint,
-          keys: {
-            auth: subscription.authKey,
-            p256dh: subscription.p256dhkey,
-          },
-        };
+    for (const subscription of pushSubscriptions) {
+      const pushSubscription = {
+        endpoint: subscription.endpoint,
+        keys: {
+          auth: subscription.authKey,
+          p256dh: subscription.p256dhkey,
+        },
+      };
 
-        const payload = JSON.stringify({
-          body: `てすと`,
-        });
+      const payload = JSON.stringify({
+        body: `てすと`,
+      });
 
-        webPush.sendNotification(pushSubscription, payload);
+      webPush.sendNotification(pushSubscription, payload);
     }
-
 
     return new NextResponse('OK', { status: 200 });
   } catch (err) {
@@ -125,4 +126,3 @@ export async function GET() {
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
-
