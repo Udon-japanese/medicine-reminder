@@ -6,6 +6,7 @@ import { NextResponse } from 'next/server';
 import { getDateInTimezone } from '@/utils/getDateInTimezone';
 
 export const maxDuration = 60;
+export const dynamic = 'force-dynamic'
 export async function GET() {
   try {
     // const currentDate = getDateInTimezone(new Date());
