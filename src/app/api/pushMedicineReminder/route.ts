@@ -5,6 +5,7 @@ import { webPush } from '@/lib/webPush';
 import { NextResponse } from 'next/server';
 import { getDateInTimezone } from '@/utils/getDateInTimezone';
 
+export const maxDuration = 60;
 export async function GET() {
   try {
     // const currentDate = getDateInTimezone(new Date());
@@ -124,3 +125,4 @@ export async function GET() {
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
+
