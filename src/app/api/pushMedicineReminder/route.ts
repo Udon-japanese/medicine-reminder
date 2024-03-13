@@ -117,7 +117,7 @@ export async function GET() {
         body: `てすと`,
       });
 
-      webPush.sendNotification(pushSubscription, payload);
+      await webPush.sendNotification(pushSubscription, payload);
     }
 
     return new NextResponse('OK', { status: 200 });
